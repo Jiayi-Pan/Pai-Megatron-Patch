@@ -390,8 +390,8 @@ def build_tokenizer(args):
                 return self.tokenizer(text, return_tensors=return_tensors, padding=padding,
                         max_length=max_length, truncation=truncation, add_special_tokens=add_special_tokens)
 
-            def apply_chat_template(self, conversations):
-                return self.tokenizer.apply_chat_template(conversations)
+            def apply_chat_template(self, *args, **kwargs):
+                return self.tokenizer.apply_chat_template(*args, **kwargs)
 
             @property
             def vocab_size(self):
