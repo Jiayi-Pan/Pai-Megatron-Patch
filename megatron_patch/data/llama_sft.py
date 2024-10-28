@@ -207,7 +207,7 @@ class LLamaSFTDataset(torch.utils.data.Dataset):
     def __init__(self, path, max_padding_length, split='train'):
         self.max_padding_length = max_padding_length
         self.tokenizer = get_tokenizer()
-        self.tokenizer.chat_template = CHAT_TEMPLATE
+        self.tokenizer.tokenizer.chat_template = CHAT_TEMPLATE
         self.IGNORE_INDEX = self.tokenizer.pad_token_id
 
         list_data_dict = load_dataset(
