@@ -277,7 +277,7 @@ class LLamaSFTDataset(torch.utils.data.Dataset):
         assistant_masks = np.array(out['assistant_masks'])
         labels = np.where(assistant_masks == 1, labels, self.IGNORE_INDEX)
         dict
-        input_ids = np.pad(input_ids, (0, self.max_padding_length + 1 - len(input_ids)), 'constant', constant_values=self.IGNORE_INDEX)
+        input_ids = np.pad(input_ids, (0, self.max_padding_length + 1 - len(input_ids)), 'constant', constant_values=self.tokenizer.pad_token_id)
         labels = np.pad(labels, (0, self.max_padding_length + 1 - len(labels)), 'constant', constant_values=self.IGNORE_INDEX)
         input_ids = input_ids.tolist()
         labels = labels.tolist()
